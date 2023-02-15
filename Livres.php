@@ -47,9 +47,9 @@ class Livres {
         return $this -> Prix;   
     }
 
-    public function getAuteur() 
+    public function getAuteurs() 
     {
-        return $this -> auteur;
+        return $this -> auteurs;
     }
 
 // SETTERS
@@ -74,7 +74,7 @@ class Livres {
         $this -> Prix = $Prix;
     }
 
-    public function setAuteur($auteurs)
+    public function setAuteurs($auteurs)
     {
         $this -> auteurs = $auteurs;
     }
