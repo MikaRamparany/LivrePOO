@@ -1,8 +1,9 @@
-FICHE Auteurs 
-
-
-
 <?php 
+//FICHE Auteurs 
+
+//Un auteur comporte un nom et un prénom.
+
+
 
 class Auteurs {
 
@@ -14,7 +15,7 @@ class Auteurs {
     {
         $this ->_nom =$_nom;
         $this ->_prenom =$_prenom;
-        // $this -> $Allbooks = []; / à activer quand je vais devoir lier à la feuille Livre.php après. 
+        $this -> Allbooks = []; //à activer quand je vais devoir lier à la feuille Livre.php après. 
     }   
 
     //GETTERS 
@@ -28,10 +29,10 @@ class Auteurs {
         return $this->_prenom;
     } 
 
-    // public function getAllBooks() //!<----- A ACTIVER APRES AVOIR CRÉÉ LES FONCTIONS ET VARIABLES DE LA FEUILLE Livre.php pour lier les deux feuilles
-    // {
-    //     $this-> AllBooks;
-    // }
+    public function getAllBooks() //<----- A ACTIVER APRES AVOIR CRÉÉ LES FONCTIONS ET VARIABLES DE LA FEUILLE Livre.php pour lier les deux feuilles
+    {
+        $this-> AllBooks;
+    }
     
     // SETTERS 
 
@@ -45,8 +46,35 @@ class Auteurs {
          $this->_prenom=$_prenom;
     }
     
-    // public function setAllBooks()
-    // {
-    //     $this-> AllBooks;  //! <----- IDEM QUE GETTER All Books
-    // }
-}
+    public function setAllBooks($Allbooks)
+    {
+        $this->AllBooks= $Allbooks ;// <----- IDEM QUE GETTER All Books
+        return $this;
+    }
+
+    //FONCTIONS AFFICHER NOM ET PRENOM 
+
+
+    public function __toString()
+    {
+        return $this -> _prenom. " " . $this-> _nom. " ";
+    } 
+
+    //CREATION FONCTION POUR AFFICHER BIBILOGRAPHIE D'UN AUTEUR:
+
+    public function Addbooks($Thebook){
+        $this->Allbooks[] = $Thebook;
+    }
+
+    public function afficherBibliographie()
+    {
+        $result = "Livres de $this : <br>";
+
+        foreach ($this->AllBooks as $book) 
+    {
+            $result = $result. $book; // ou comme dans l'exercice de la banque fichier Titulaires => $result.= $books
+    } 
+    return $result;
+
+    }
+}   
